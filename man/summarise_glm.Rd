@@ -7,18 +7,18 @@
 summarise_glm(glmobject, xcoord = 1, xlab = "x", ylab, main = "")
 }
 \arguments{
-\item{glmobject}{a lm, glm or gam{mgcv} object}
+\item{glmobject}{a lm, glm or gam{mgcv} object.}
 
 \item{xcoord}{The independent variable that will be used to plot against the fitted values.
 Can be a vector of same length as dependent variable or an integer between 1 and the number of predictors used in the model.
 The default value is the first predictor used in the formula of the glm.}
 
 \item{xlab}{Specify the x label for plotting the fitted values. Default is "x" or the column name if xcoord comes from a dataframe.
-Note: use data\link{,x} format to keep column name accessible to this function, not data$name or data[\link{x}].}
+Note: use data[,x] format to keep column name accessible to this function, not data$name or data[[x]].}
 
 \item{ylab}{Specify ylabel manually. Default is the name response variable in the glm}
 
-\item{main}{Title of fitted values plot. Default is no title}
+\item{main}{Title of fitted values plot as a character or string. Default is no title..}
 }
 \value{
 does not return anything.

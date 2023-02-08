@@ -13,6 +13,8 @@
 #'
 #'
 #'@return returns the output of whatever is chosen for func
+#'
+#'@export
 rsl <- function(func, run = TRUE, obj_name, d) {
 
   if(missing(func)) stop("func argument is missing")
