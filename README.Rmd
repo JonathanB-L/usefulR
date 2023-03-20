@@ -105,7 +105,7 @@ This method comes with three arguments. `d_default` is used to set the writing d
 # NOT RUN
 
 # Set this somewhere at the top of your workflow
-set_runfast_default(run_default = TRUE, override_default = TRUE, d_default = "C:\PATH_TO_FOLDER") # evaluate and save, overriding other inputs
+set_rsl_default(run_default = TRUE, override_default = TRUE, d_default = "C:\PATH_TO_FOLDER") # evaluate and save, overriding other inputs
 
 # some work
 
