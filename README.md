@@ -133,22 +133,26 @@ workflow? Scrolling down to change each `run` argument can still be
 tedious. That’s where `rsl`’s accompanying method `set_rsl_default`
 comes in.
 
-This method comes with three arguments. `d_default` is used to set the
-writing directory where all `rsl` functions will save their output.
-`run_default` will set the default argument for `run` for all `rsl`
-functions to either TRUE or FALSE. The third argument is
-`override_default`. If you specify arguments for `run` and `d`, `rsl`
-will use those arguments first and ignore the settings from
-`set_rsl_default`. But with `override_default = TRUE`, all `rsl`
-functions will use `d_default` and `run_default` regardless of what’s
-written in them. So combining both methods, we can change the above code
-to something like this:
+This method comes with three arguments:
+
+- `d_default` is used to set the writing directory where all `rsl`
+  functions will save their output.
+- `run_default` will set the default argument for `run` for all `rsl`
+  functions to either TRUE or FALSE.
+- `override_default`: If you specify arguments for `run` and `d`, `rsl`
+  will use those arguments first and ignore the settings from
+  `set_rsl_default`. But with `override_default = TRUE`, all `rsl`
+  functions will use `d_default` and `run_default` regardless of what’s
+  written in them.
+
+So combining both methods, we can change the above code to something
+like this:
 
 ``` r
 # NOT RUN
 
 # Set this somewhere at the top of your workflow
-set_runfast_default(run_default = TRUE, override_default = TRUE, d_default = "C:\PATH_TO_FOLDER") # evaluate and save, overriding other inputs
+set_rsl_default(run_default = TRUE, override_default = TRUE, d_default = "C:\PATH_TO_FOLDER") # evaluate and save, overriding other inputs
 
 # some work
 
@@ -246,13 +250,13 @@ mod
 
 OR
 
-2.  simply set `run = TRUE` in `rsl` and run the function alone:
+2.  simply set `run = F` in `rsl` and run the function alone:
 
 ``` r
 # load the model
 rsl(func = lm(formula = dist ~ speed, data = cars), # fit a linear model
     obj_name = "mod", # name
-    run = T
+    run = F
     )
 
 # you can check that the lm object mod has been loaded

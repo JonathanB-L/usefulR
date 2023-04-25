@@ -98,7 +98,13 @@ rsl(func = some_model_function(data), # the method to be executed
 
 If you set `run = F` the method will instead search the folder from `d = "C:\Path_to_folder"` for "obj_name.rda" and load it into R. So now instead of commenting and un-commenting multiple lines when you need to change between evaluating or loading a model, you just need to change `run = T` to `run = F`. But what if you have multiple models across your workflow? Scrolling down to change each `run` argument can still be tedious. That's where `rsl`'s accompanying method `set_rsl_default` comes in.
 
-This method comes with three arguments. `d_default` is used to set the writing directory where all `rsl` functions will save their output. `run_default` will set the default argument for `run` for all `rsl` functions to either TRUE or FALSE. The third argument is `override_default`. If you specify arguments for `run` and `d`, `rsl` will use those arguments first and ignore the settings from `set_rsl_default`. But with `override_default = TRUE`, all `rsl` functions will use `d_default` and `run_default` regardless of what's written in them. So combining both methods, we can change the above code to something like this:
+This method comes with three arguments:
+
+* `d_default` is used to set the writing directory where all `rsl` functions will save their output. 
+* `run_default` will set the default argument for `run` for all `rsl` functions to either TRUE or FALSE. 
+* `override_default`: If you specify arguments for `run` and `d`, `rsl` will use those arguments first and ignore the settings from `set_rsl_default`. But with `override_default = TRUE`, all `rsl` functions will use `d_default` and `run_default` regardless of what's written in them. 
+
+So combining both methods, we can change the above code to something like this:
 
 
 ```{r set_rsl_default, eval = FALSE}
@@ -204,12 +210,12 @@ mod
 ```
 OR
 
-2. simply set `run = TRUE` in `rsl` and run the function alone:
+2. simply set `run = F` in `rsl` and run the function alone:
 ```{r rsl load2, echo = TRUE, eval = FALSE}
 # load the model
 rsl(func = lm(formula = dist ~ speed, data = cars), # fit a linear model
     obj_name = "mod", # name
-    run = T
+    run = F
     )
 
 # you can check that the lm object mod has been loaded
@@ -220,7 +226,7 @@ mod
 # load the model
 rsl(func = lm(formula = dist ~ speed, data = cars), # fit a linear model
     obj_name = "mod", # name
-    run = T
+    run = F
     )
 
 # you can check that the lm object mod has been loaded
